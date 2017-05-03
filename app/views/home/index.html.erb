@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <h1>멋쟁이사자처럼<br>게시판</h1><br>
+    <form action="post/create" method="POST" id="contact">
+      <div class="form-group">
+        <label for="exampleInputEmail1">제목</label>
+        <input type="text" name="title" class="form-control" id="exampleInputEmail1" placeholder="Title">
+      </div>
+      <div class="form-group">
+        <label for="textarea">내용</label>
+        <textarea class="form-control" id="textarea" name="content" rows="4" placeholder="Content"></textarea><br>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button><br>
+    </form><br>
+    <% @posts.each do |post| %>
+      <p><%= post.title %> // <%= post.content %>
+        <a href="/post/<%= post.id %>/delete">[삭제]</a>
+        <a href="/post/<%= post.id %>/edit">[수정]</a>
+      </p>
+    <% end %>
+  </div>
+</div>
